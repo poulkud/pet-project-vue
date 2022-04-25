@@ -1,28 +1,21 @@
 <template>
-  <div class="navbar">
-    <div @click="$router.push('/')">Главная страница</div>
+  <div class="navbar__container">
+    <router-link :to="`/`">Главная страница</router-link>
     <div class="navbar__btns">
-      <my-button class="button" @click="$router.push('/posts')"
-        >Посты</my-button
-      >
-      <my-button class="button" @click="$router.push('/about')"
-        >О сайте</my-button
-      >
-      <my-button class="button" @click="$router.push('/store')"
-        >store</my-button
-      >
+      <router-link :to="`/posts`" class="button"> Посты </router-link>
+      <router-link :to="`/about`" class="button"> О сайте </router-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "bar-nav",
+  name: "BarNav",
 };
 </script>
 
 <style>
-.navbar {
+.navbar__container {
   height: 50px;
   background-color: teal;
   box-shadow: 2px 2px 4px gray;
@@ -32,5 +25,9 @@ export default {
 }
 .navbar__btns {
   margin-left: auto;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
 </style>

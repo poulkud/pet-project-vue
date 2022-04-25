@@ -1,11 +1,11 @@
 <template>
   <button>
-    <slot></slot>
+    <slot />
   </button>
 </template>
 <script>
 export default {
-  name: "my-button",
+  name: "MyButton",
 };
 </script>
 <style>
@@ -17,5 +17,8 @@ export default {
   align-self: flex-end;
   padding: 10px;
   margin: 0 5px;
+  text-decoration: none;
+  color: black;
+  font-size: 13px;
 }
 </style>

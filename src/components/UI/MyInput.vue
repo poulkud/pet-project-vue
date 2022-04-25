@@ -1,9 +1,9 @@
 <template>
-  <input :value="modelValue" @input="updateInput" class="input" type="text" />
+  <input :value="modelValue" class="input" type="text" @input="updateInput" />
 </template>
 <script>
 export default {
-  name: "my-input",
+  name: "MyInput",
   props: {
     modelValue: [String, Number],
   },

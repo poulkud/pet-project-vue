@@ -1,32 +1,30 @@
-import Main from "@/pages/Main.vue";
-import PostPage from "@/pages/PostPage.vue";
-import About from "@/pages/About.vue";
-import AboutPost from "@/pages/AboutPost.vue";
-import PostPageWithStore from "@/pages/PostPageWithStore.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
-const routes = [
+const routeOptions = [
   {
     path: "/",
-    component: Main,
+    name: "MainPage",
   },
   {
     path: "/posts",
-    component: PostPage,
+    name: "PostPage",
   },
   {
     path: "/posts/:id",
-    component: AboutPost,
-  },
-  {
-    path: "/store",
-    component: PostPageWithStore,
+    name: "AboutPost",
   },
   {
     path: "/about",
-    component: About,
+    name: "AboutProject",
   },
 ];
+
+const routes = routeOptions.map((route) => {
+  return {
+    ...route,
+    component: () => import(`../pages/${route.name}.vue`),
+  };
+});
 
 const router = createRouter({
   routes,

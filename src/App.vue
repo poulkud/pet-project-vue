@@ -1,7 +1,7 @@
-<template lang="">
-  <bar-nav></bar-nav>
+<template>
   <div class="app">
-    <router-view></router-view>
+    <bar-nav />
+    <router-view />
   </div>
 </template>
 <script>

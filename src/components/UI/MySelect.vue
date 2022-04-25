@@ -1,5 +1,5 @@
-<template lang="">
-  <select v-model="modelValue" @change="changeOption" class="select">
+<template>
+  <select :value="modelValue" class="select" @change="changeOption">
     <option disabled value="">choose</option>
     <option v-for="option in options" :key="option.value" :value="option.value">
       {{ option.name }}
@@ -8,10 +8,11 @@
 </template>
 <script>
 export default {
-  name: "my-select",
+  name: "MySelect",
   props: {
     modelValue: {
       type: String,
+      default: "",
     },
     options: {
       type: Array,

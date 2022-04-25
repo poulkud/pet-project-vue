@@ -1,28 +1,30 @@
 <template>
-  <div v-show="posts.length > 0">
-    <h3>Список Постов</h3>
-    <transition-group name="post-list">
-      <post-item
-        v-for="post in posts"
-        :post="post"
-        :key="post.id"
-        @remove="$emit('remove', post)"
-      />
-    </transition-group>
+  <div>
+    <div v-show="posts.length > 0">
+      <h3>Список Постов</h3>
+      <transition-group name="post-list">
+        <post-item
+          v-for="post in posts"
+          :key="post.id"
+          :post="post"
+          @remove="$emit('remove', post)"
+        />
+      </transition-group>
+    </div>
+    <h2 v-show="posts.length === 0" style="color: red">Пусто</h2>
   </div>
-  <h2 v-show="posts.length === 0" style="color: red">Пусто</h2>
 </template>
 <script>
 import PostItem from "./PostItem.vue";
 export default {
   components: { PostItem },
-  emits: ["remove"],
   props: {
     posts: {
       type: Array,
       required: true,
     },
   },
+  emits: ["remove"],
 };
 </script>
 <style scoped>

@@ -1,5 +1,5 @@
 <template>
-  <div class="page__wrapper">
+  <div class="page__container">
     <div
       v-for="pageNumber in total"
       :key="pageNumber"
@@ -15,12 +15,7 @@
 </template>
 <script>
 export default {
-  name: "my-pagination",
-  data() {
-    return {
-      page: 1,
-    };
-  },
+  name: "MyPagination",
   props: {
     total: {
       type: Number,
@@ -31,6 +26,11 @@ export default {
       default: 1,
     },
   },
+  data() {
+    return {
+      page: 1,
+    };
+  },
   methods: {
     changePage(pageNum) {
       this.$emit("nextPage", pageNum);
@@ -39,7 +39,7 @@ export default {
 };
 </script>
 <style scoped>
-.page__wrapper {
+.page__container {
   display: flex;
   margin-top: 15px;
 }

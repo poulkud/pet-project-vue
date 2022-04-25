@@ -1,19 +1,28 @@
 <template>
-  <div class="dialog" v-if="show" @click.stop="hideDialog">
-    <div @click.stop class="dialog__content">
-      <slot></slot>
+  <div v-if="show" class="dialog__container" @click.stop="hideDialog">
+    <div class="dialog__content" @click.stop>
+      <slot />
     </div>
   </div>
 </template>
 <script>
-import toggleMixin from "@/mixins/toggleMixin";
 export default {
-  name: "my-dialog",
-  mixins: [toggleMixin],
+  name: "MyDialog",
+  props: {
+    show: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  methods: {
+    hideDialog() {
+      this.$emit("update:show", false);
+    },
+  },
 };
 </script>
 <style scoped>
-.dialog {
+.dialog__container {
   top: 0;
   bottom: 0;
   right: 0;
